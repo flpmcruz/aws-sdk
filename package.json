@@ -1,0 +1,20 @@
+{
+  "name": "aws-ec2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "ec2": "node src/ec2.js",
+    "s3": "node src/s3.js"
+  },
+  "keywords": [],
+  "author": "Felipe",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-ec2": "^3.441.0",
+    "@aws-sdk/client-s3": "^3.441.0",
+    "@aws-sdk/s3-request-presigner": "^3.441.0",
+    "dotenv": "^16.3.1"
+  }
+}
