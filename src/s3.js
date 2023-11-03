@@ -25,7 +25,7 @@ export const getFileFromBucket = async (Key) => {
     );
     return url;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
 
@@ -39,7 +39,7 @@ export const uploadFileToBucket = async (Key, Body) => {
     const command = new PutObjectCommand(uploadParams);
     return await client.send(command);
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
 
@@ -48,6 +48,10 @@ export const deleteFileFromBucket = async (Key) => {
     Bucket: "bucketName",
     Key,
   };
-  const deleteCommand = new DeleteObjectCommand(deleteParams);
-  return await client.send(deleteCommand);
+  try {
+    const deleteCommand = new DeleteObjectCommand(deleteParams);
+    return await client.send(deleteCommand);
+  } catch (error) {
+    throw error;
+  }
 };

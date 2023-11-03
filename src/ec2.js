@@ -16,8 +16,12 @@ const client = new EC2Client({
 
 // List instances
 export const listInstances = async (input = {}) => {
-  const command = new DescribeInstanceStatusCommand(input);
-  return await client.send(command);
+  try {
+    const command = new DescribeInstanceStatusCommand(input);
+    return await client.send(command);
+  } catch (error) {
+    throw error;
+  }
 };
 const describeInput = {
   IncludeAllInstances: true,
@@ -26,8 +30,12 @@ const describeInput = {
 
 // Run instance
 export const runInstance = async (input) => {
-  const command = new RunInstancesCommand(input);
-  return await client.send(command);
+  try {
+    const command = new RunInstancesCommand(input);
+    return await client.send(command);
+  } catch (error) {
+    throw error;
+  }
 };
 
 const runInput = {
